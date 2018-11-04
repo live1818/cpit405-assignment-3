@@ -1,0 +1,181 @@
+<html>
+	<head>
+		<title>Ass3_sort</title>
+	</head>
+	<body>
+        
+        
+
+        <span>
+            Sort By:
+            <select id="Select">
+                <option value="00">None</option>
+                <option value="0">Name</option>
+                <option value="1">Like</option>
+                <option value="2">Date</option>
+
+
+            </select>
+
+        </span>
+    
+  <input type="submit"  onclick="view()">
+        
+        <ul id="ull">
+        
+            <li >
+            
+            <img src="http://parspets.com/wp-content/uploads/2018/06/good-health.jpg" width="200" height="200" />
+            <pre>
+            name: "Cute Cat",
+            likes: 20,
+            dateUploaded: "23/10/2018"
+            </pre>
+            </li>
+        
+            <li>
+           
+            <hr />
+            <img src="https://cde.peru.com//ima/0/0/5/9/8/598279/611x458/gato-negro.jpg" width="200" height="200" />
+            <pre>
+            name: "Black Cat",
+            likes: 40,
+            dateUploaded: "22/10/2018"
+           </pre>
+
+        </li>
+        <li>
+            <hr />
+            <img src="https://i.ytimg.com/vi/lrvqjdMcjjQ/hqdefault.jpg" width="200" height="200" />
+            <pre>
+            name: "Funny Cat",
+            likes: 35,
+            dateUploaded: "20/10/2018"
+            </pre>
+        </li>
+        <li>
+            <hr />
+            <img src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2018/01/Grumpy-Cat-920x584.jpg" width="200" height="200" />
+            <pre>
+            name: "Grumpy Cat",
+            likes: 50,
+            dateUploaded: "24/10/2018"
+            </pre>
+            <hr />
+        </li>
+
+            <li id="lii"><br/>After sort: </li>
+
+      
+        </ul>
+       
+
+
+	<script>
+        
+        
+		
+	
+		function view()
+	{
+	
+		    var arrayOb = [
+        {
+            name: "Cute Cat",
+            likes: 20,
+            dateUploaded: "23/10/2018",
+            src: "http://parspets.com/wp-content/uploads/2018/06/good-health.jpg"
+        },
+        {
+            name: "Black Cat",
+            likes: 40,
+            dateUploaded: "22/10/2018",
+            src: "https://cde.peru.com//ima/0/0/5/9/8/598279/611x458/gato-negro.jpg"
+        },
+        {
+
+            name: "Funny Cat",
+            likes: 35,
+            dateUploaded: "20/10/2018",
+            src: "https://i.ytimg.com/vi/lrvqjdMcjjQ/hqdefault.jpg"
+        },
+        {
+
+            name: "Grumpy Cat",
+            likes: 50,
+            dateUploaded: "24/10/2018",
+            src: "https://ksassets.timeincuk.net/wp/uploads/sites/55/2018/01/Grumpy-Cat-920x584.jpg"
+        }
+		    ]
+		
+			var like = arrayOb.slice(0);
+			like.sort(function(a,b) {
+				return b.likes - a.likes;
+			});
+			
+			
+			var date = arrayOb.slice(0);
+			date.sort(function(a,b) {
+				return a.dateUploaded - b.dateUploaded;
+			});
+
+	
+			var name = arrayOb.slice(0);
+			name.sort(function(a,b) {
+				var x = a.name.toLowerCase();
+				var y = b.name.toLowerCase();
+				return x < y ? -1 : x > y ? 1 : 0;
+			});
+			
+			
+			
+		var ids = document.getElementById('Select').value;
+		
+		if(ids==0)
+		{
+			
+				for(var i=0;i<=3;i++){
+					var lii = document.getElementById("lii");
+					var image = document.createElement("IMG");
+                    image.style.height = "200";
+                    image.style.width = "200";
+					var arr=name[i].src;
+					image.setAttribute("src", " " + arr);
+					lii.appendChild(image);
+					document.getElementById("ull").appendChild(lii);
+					
+				}
+		}
+		else if(ids==1){
+			for(var i=0;i<=3;i++){
+					var lii = document.getElementById("lii");
+					var image = document.createElement("IMG");
+                    image.style.height = "200";
+                    image.style.width = "200";
+					var arr=like[i].src;
+					image.setAttribute("src", " " + arr);
+					lii.appendChild(image);
+					document.getElementById("ull").appendChild(lii);
+					
+				}
+		}
+		else if(ids==2){
+			for(var i=0;i<=3;i++){
+					var lii = document.getElementById("lii");
+					var image = document.createElement("IMG");
+                    image.style.height = "200";
+                    image.style.width = "200";
+					var arr=date[i].src;
+					image.setAttribute("src", " "+arr);
+					lii.appendChild(image);
+					document.getElementById("ull").appendChild(lii);
+					
+				}
+		}
+            else{}
+		
+	}
+	
+		</script>	
+	</body>
+</html>
